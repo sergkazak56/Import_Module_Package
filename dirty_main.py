@@ -1,7 +1,7 @@
-from application.salary import calculate_salary
-from application.db.people import get_employees
+from application.salary import *
+from application.db.people import *
 import datetime
-from geometry_543 import Ellipse # небольшой модуль для подсчета площади эллипса или круга. Можно дополнять своими геометрическими классами. Пакет от pypi.
+from geometry_543 import * # небольшой модуль для подсчета площади эллипса или круга. Можно дополнять своими геометрическими классами. Пакет от pypi.
 
 # Знакомство с модулем datetime (задание 3)
 def datetime_example():
@@ -25,6 +25,7 @@ def datetime_example():
     print(f'Сегодня: {weekday_dict[week_day]}')
     print(f'Сегодня (ошибка см комментарий): {weekday_dict[dt.weekday()]}') # А вот метод weekday() почему-то работает неправильно
 
+
 def ellipse_area(radius_small=0, radius_big=0):
     e = Ellipse(radius_small, radius_big)
     return e.calc_area()
@@ -43,5 +44,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
