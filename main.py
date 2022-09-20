@@ -14,12 +14,15 @@ def datetime_example():
     print(f'Сейчас: {day_now}')
     delta_years = day_now.year - day_birthday.year
     delta_months = day_now.month - day_birthday.month
-    delta_days = day_now.day - day_birthday.day
+    if day_now.time() < day_birthday.time():
+        delta_days = day_now.day - day_birthday.day - 1
+    else:
+        delta_days = day_now.day - day_birthday.day
     delta_sec = round((day_now - day_birthday).total_seconds() - (day_now - day_birthday).days * 24 * 60 * 60, 0)
     delta_hours = delta_sec // 3600
     delta_mins = delta_sec % 3600 // 60
     delta_secs = delta_sec % 3600 % 60
-    print(f'Моей внучке сейчас: {delta_years} лет {delta_months} месяцев {delta_days} дней {int(delta_hours)}:{int(delta_mins)}:{int(delta_secs)}')
+    print(f'Моей внучке сейчас: {delta_years} лет {delta_months} месяцев {delta_days} дней {int(delta_hours)}ч {int(delta_mins)}м {int(delta_secs)}с')
     weekday_dict = {0:'Понедельник', 1:'Вторник', 2:'Среда', 3:'Четверг', 4:'Пятница', 5:'Суббота', 6:'Воскресенье'}
     week_day = (day_now.toordinal() + 6) % 7
     print(f'Сегодня: {weekday_dict[week_day]}')
